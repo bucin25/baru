@@ -104,6 +104,4 @@ def __login__():
 #------->login token jangan lupa masukin token facebook jangan token listrik kontol<-------#     
 			
 if __name__ == '__main__':
-	buat_folder()
-	xxnx()
 	pilihlogin()
