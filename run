@@ -98,3 +98,12 @@ def __login__():
 		exit()
 	else:
 		exit("%s«%s!%s Wrong input"%(K,M,K))
+
+
+
+#------->login token jangan lupa masukin token facebook jangan token listrik kontol<-------#     
+			
+if __name__ == '__main__':
+	buat_folder()
+	xxnx()
+	pilihlogin()
