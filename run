@@ -61,7 +61,8 @@ def __login__():
 		exit("%s«%s!%s Wrong input"%(K,M,K))
 	elif __login in ['1','01']:
 		try:
-			__token__=raw_input("%s«%s?%s TOKEN :\033[1;96m ")
+			print
+			__token__=raw_input("\033[1;96m[\033[1;97m?\033[1;96m] TOKEN :\033[1;96m ")
 			if __token__ in ['',' ']:
 				exit("%s«%s!%s Jangan kosong"%(K,M,K))
 			cekz=requests.get('https://graph.facebook.com/me/?access_token=%s'%(__token__))
