@@ -57,16 +57,7 @@ def __login__():
 	print("\033[1;96m[\033[1;97m03\033[1;96m] \033[1;97mVideo cara mengambil TOKEN")
 	print("\033[1;96m[\033[1;97m04\033[1;96m] \033[1;97mVideo cara mengambil COOKIE")
 	bct = raw_input("\n\033[1;96m[\033[1;97m?\033[1;96m] PILIH :\033[1;93m ")
-	if bct == "":
-		pilihlogin()
-	elif bct == "1":
-		tokenz()
-	elif bct == "2":
-		gen()
-	elif bct == "3":
-		os.system("xdg-open https://www.youtube.com/watch?v=Q4I0mOkGjFE")
-	elif bct == "4":
-		os.system("xdg-open https://www.youtube.com/watch?v=MGQYs_UZSxQ")
+	
 	if __login in['']:
 		exit("%s«%s!%s Wrong input"%(K,M,K))
 	elif __login in ['1','01']:
