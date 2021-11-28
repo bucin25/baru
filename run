@@ -51,11 +51,11 @@ def jalan(z):
 def __login__():
 	os.system('clear')
 	logo()
-	print("\n [01] Login menggunakan token")
-	print("[02]%s Login menggunakan cookie")
-	print("[03]%s Cara dapat token or cookie")
-	print("[04]%s Cara dapat token or cookie")
-	print("[05]%s Keluar")
+	print("\n[01] Login menggunakan TOKEN")
+	print("[02] Login menggunakan COOKIE")
+	print("[03] Cara mendapatkan TOKEN")
+	print("[03] Cara mendapatkan COOKIE")
+	print("[05] KELUAR")
 	__login=raw_input("\n%s«%s?%s Choose :%s "%(B,H,P,X))
 	if __login in['']:
 		exit("%s«%s!%s Wrong input"%(K,M,K))
