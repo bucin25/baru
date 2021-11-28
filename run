@@ -56,12 +56,12 @@ def __login__():
 	print("\033[1;96m[\033[1;97m02\033[1;96m] \033[1;97mLogin via COOKIE")
 	print("\033[1;96m[\033[1;97m03\033[1;96m] \033[1;97mVideo cara mengambil TOKEN")
 	print("\033[1;96m[\033[1;97m04\033[1;96m] \033[1;97mVideo cara mengambil COOKIE")
-	__login=raw_input("\n\033[1;96m[\033[1;97m?\033[1;96m] \033[1;97mPILIH :%s ")
+	__login=raw_input("\n\033[1;96m[\033[1;97m?\033[1;96m] \033[1;97mPILIH : ")
 	if __login in['']:
 		exit("%s«%s!%s Wrong input"%(K,M,K))
 	elif __login in ['1','01']:
 		try:
-			__token__=raw_input("%s«%s?%s Token :%s "%(B,H,P,X))
+			__token__=raw_input("%s«%s?%s TOKEN :\033[1;96m ")
 			if __token__ in ['',' ']:
 				exit("%s«%s!%s Jangan kosong"%(K,M,K))
 			cekz=requests.get('https://graph.facebook.com/me/?access_token=%s'%(__token__))
@@ -72,7 +72,7 @@ def __login__():
 			exit("%s«%s!%s Token Salah"%(K,M,K))
 	elif __login in ['2','02']:
 		try:
-			__cookie__=raw_input("%s«%s?%s Cookie :%s "%(B,H,P,X))
+			__cookie__=raw_input("%s«%s?%s COOKIE :%s "%(B,H,P,X))
 			if __cookie__ in ['',' ']:
 				exit("%s«%s!%s Jangan kosong"%(K,M,K))
 			data=requests.get('https://business.facebook.com/business_locations', headers = {
