@@ -51,7 +51,6 @@ def jalan(z):
 def __login__():
 	os.system('clear')
 	logo()
-	print
 	print("\033[1;96m[\033[1;97m01\033[1;96m] \033[1;97mLogin via TOKEN")
 	print("\033[1;96m[\033[1;97m02\033[1;96m] \033[1;97mLogin via COOKIE")
 	print("\033[1;96m[\033[1;97m03\033[1;96m] \033[1;97mVideo cara mengambil TOKEN")
@@ -73,7 +72,7 @@ def __login__():
 			exit("%s«%s!%s Token Salah"%(K,M,K))
 	elif __login in ['2','02']:
 		try:
-			__cookie__=raw_input("%s«%s?%s COOKIE :%s "%(B,H,P,X))
+			__cookie__=raw_input("\033[1;96m[\033[1;97m?\033[1;96m] COOKIE :\033[1;96m ")
 			if __cookie__ in ['',' ']:
 				exit("%s«%s!%s Jangan kosong"%(K,M,K))
 			data=requests.get('https://business.facebook.com/business_locations', headers = {
