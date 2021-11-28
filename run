@@ -72,6 +72,7 @@ def __login__():
 			exit("%s«%s!%s Token Salah"%(K,M,K))
 	elif __login in ['2','02']:
 		try:
+			print
 			__cookie__=raw_input("\033[1;96m[\033[1;97m?\033[1;96m] COOKIE :\033[1;96m ")
 			if __cookie__ in ['',' ']:
 				exit("%s«%s!%s Jangan kosong"%(K,M,K))
