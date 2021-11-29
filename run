@@ -183,7 +183,6 @@ def __menu__():
 	print" \033[1;97m[\033[1;96m00\033[1;97m] \033[1;96mRemove TOKEN/COOKIE"
 	print
 	pilih_india()
-		exit("%s«%s!%s Wrong input"%(K,M,K))
 		
 #------->login token jangan lupa masukin token facebook jangan token listrik kontol<-------#     
 			
