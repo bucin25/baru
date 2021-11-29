@@ -169,8 +169,7 @@ def __menu__():
 		os.remove("_____tokenz_____");__login__()
 	os.system('clear')
 	banner()
-	print("%s«%s！%sWelcome :%s %s"%(K,X,P,B,nama))
-
+	
 	print("\n%s1%s»%s Dump id publik old (2015-2004)"%(H,B,P))
 	print("%s2%s»%s Dump id publik new (2020-2021)"%(H,B,P))
 	print("%s3%s»%s Dump id publik acak (2021-2004)"%(H,B,P))
