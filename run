@@ -169,7 +169,8 @@ def __menu__():
 		os.remove("_____tokenz_____");__login__()
 	os.system('clear')
 	banner()
-	
+	print
+	print
 	print" \033[1;96m[\033[1;97m01\033[1;96m] \033[1;97mCrack dari ID publik"
 	print" \033[1;96m[\033[1;97m02\033[1;96m] \033[1;97mCrack dari ID followers"
 	print" \033[1;96m[\033[1;97m03\033[1;96m] \033[1;97mCrack dari likes postingan publik"
