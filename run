@@ -47,7 +47,32 @@ def jalan(z):
 		sys.stdout.write(e)
 		sys.stdout.flush()
 		time.sleep(0.001)
+def banner():                
+	print
+	print
+	print
+	jalan ('                \33[3;1m\033[1;97mW e l c o m e  T o\33[0;1m')
+	print
+	jalan ('       \033[1;96m[\33[37;1mR\033[1;96m] \033[1;96m[\033[1;97mA\033[1;96m] \033[1;96m[\033[1;97mT\033[1;96m] \033[1;96m[\033[1;97mU\033[1;96m]  \033[1;96m[\033[1;97mE\033[1;96m] \033[1;96m[\033[1;97mR\033[1;96m] \033[1;96m[\33[37;1mR\033[1;96m] \033[1;96m[\033[1;97mO\033[1;96m] \033[1;96m[\033[1;97mR\033[1;96m]\033[1;96m')
+	print (' \033[1;96m  ____________________________________________')
+	print ('\033[1;97m\033[1;96m ¤\033[1;97m{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}\033[1;96m¤') 
 
+id = []
+cp = []
+ok = []
+loop = 0
+
+ct = datetime.now()
+n = ct.month
+bulan1 = [    'Januari',   'Februari',    'Maret',    'April',    'Mei',    'Juni',    'Juli',    'Agustus',    'September',    'Oktober',    'Nopember',    'Desember']
+   
+try:
+    if n < 0 or n > 12:
+        exit()
+    nTemp = n - 1
+except ValueError:
+    exit()
+    
 def __login__():
 	os.system('clear')
 	logo()
@@ -154,7 +179,7 @@ def __menu__():
 		print("%s«%s!%s Token invalid"%(K,M,K));time.sleep(2)
 		os.remove("_____tokenz_____");__login__()
 	os.system('clear')
-	os.system('echo -e "%s  ___\n |   \ _  _ _ __  _ __\n | |) | || | ‘  \| ‘_.\ \n%s |___/ \_,_|_|_|_| .__/\n                 |_|\n"'%(P,H))
+	banner()
 	print("%s«%s！%sWelcome :%s %s"%(K,X,P,B,nama))
 
 	print("\n%s1%s»%s Dump id publik old (2015-2004)"%(H,B,P))
