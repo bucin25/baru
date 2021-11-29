@@ -61,8 +61,6 @@ id = []
 cp = []
 ok = []
 loop = 0
-
-    exit()
     
 def __login__():
 	os.system('clear')
